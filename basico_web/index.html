@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para alguien especial</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #1e1e2f, #2c2c54);
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    padding: 30px;
+    border-radius: 25px;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    animation: fadeIn 1.5s ease;
+}
+
+h1 {
+    font-weight: 500;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+button {
+    margin-top: 25px;
+    padding: 12px 24px;
+    border-radius: 30px;
+    border: none;
+    font-size: 1rem;
+    background: #ff4d6d;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background: #ff1e4d;
+    transform: scale(1.05);
+}
+
+.yt-btn {
+    margin-top: 20px;
+    border: 2px solid #ff4d6d;
+    background: transparent;
+    color: #ff4d6d;
+}
+
+.yt-btn:hover {
+    background: #ff4d6d;
+    color: white;
+}
+
+#mensajeExtra {
+    margin-top: 25px;
+    display: none;
+    animation: fadeIn 1.2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Corazones */
+.heart {
+    position: fixed;
+    bottom: -10px;
+    color: #ff4d6d;
+    animation: floatUp 6s linear infinite;
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0); opacity: 0; }
+    20% { opacity: 0.8; }
+    100% { transform: translateY(-110vh); opacity: 0; }
+}
+
+/* Ajustes extra para pantallas pequeñas */
+@media (max-width: 480px) {
+    .card {
+        padding: 25px;
+        border-radius: 20px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 0.95rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>Feliz 14 de Febrero 💌</h1>
+
+    <p>
+        Sé que estás trabajando y no quería interrumpirte,
+        pero sí quería dejar algo aquí para cuando tengas un momento.
+        <br><br>
+        Desde que te conozco, algo cambió.
+        No fue escandaloso ni dramático…
+        fue tranquilo.
+        Natural.
+        Bonito.
+        <br><br>
+        Me gusta cómo eres.
+        Tu forma de hablar.
+        Tu energía.
+        Y la manera en que haces que cualquier día se sienta diferente.
+    </p>
+
+    <button onclick="mostrarMensaje()">Haz clic aquí ✨</button>
+
+    <div id="mensajeExtra">
+        <p>
+            No quiero presionarte ni adelantarnos a nada.
+            Solo quería que supieras que lo que siento es real,
+            sincero
+            y sin prisa.
+            <br><br>
+            Me gustas.
+            Y pase lo que pase,
+            me alegra haberte conocido 💖
+            <br><br>
+            Att: Luis ✨
+        </p>
+
+        <button class="yt-btn" onclick="irYouTube()">
+            Escucha esto 🎶
+        </button>
+    </div>
+</div>
+
+<script>
+function mostrarMensaje() {
+    document.getElementById("mensajeExtra").style.display = "block";
+}
+
+function irYouTube() {
+    window.open("https://www.youtube.com/watch?v=LNlq1oOhHt0&list=RDLNlq1oOhHt0&start_radio=1", "_blank");
+}
+
+// Corazones
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 10 + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 6000);
+}, 700);
+</script>
+
+</body>
+</html>
